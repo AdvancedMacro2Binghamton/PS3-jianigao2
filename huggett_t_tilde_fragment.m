@@ -1,5 +1,6 @@
 % PROGRAM NAME: ps4huggett.m
-clear, clc
+clear ;
+close all;
 
 % PARAMETERS
 beta = .9932; %discount factor 
@@ -37,18 +38,21 @@ while abs(aggsav) >= 0.01 ;
     v_tol = 1;
     while v_tol >.0001;
         % CONSTRUCT RETURN + EXPECTED CONTINUATION VALUE
+      
+        vf=bsxfun(@plus,ret,permute(beta*PI*v_guess,[3,2,1]));
         
         % CHOOSE HIGHEST VALUE (ASSOCIATED WITH a' CHOICE)
-        
-        
-  
+        [vfn,pol_indx]=max(vf,[],2);
+        v_tol=abs(permute(vfn,[3,1 2])-v_guess);
+        v_guess=[vfn(:,:,1)';vfn(:,:,2)'];
     end;
     
     % KEEP DECSISION RULE
-    pol_fn = a(pol_indx);
+   
+    pol_fn=a(pol_indx); 
     
     % SET UP INITITAL DISTRIBUTION
-
+    
     
     % ITERATE OVER DISTRIBUTIONS
     [emp_ind, a_ind, mass] = find(Mu > 0); % find non-zero indices
