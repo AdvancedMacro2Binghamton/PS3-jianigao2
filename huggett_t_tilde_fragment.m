@@ -96,3 +96,15 @@ wealth=[bsxfun(@plus,a,y_s(2));bsxfun(@plus,a,y_s(1))];
 wealth(wealth<0)=0;
 wg=gini(p,wealth,true);
 title(['wealth gini index=',num2str(wg)]);
+
+%%%%%%%%%%%%extra credits%%%%%%%%%%
+pe=sum(Mu(1,:));
+pu=sum(Mu(2,:));
+c_fb=pe*y_s(1)+pu*y_s(2);
+W_fb=c_fb^(1-sigma)/((1-sigma)*(1-beta));
+lambda=(W_fb./v_guess).^(1/(1-sigma))-1;
+
+%econmy wide gain
+gain_e=lambda(1,:)*Mu(1,:)';
+gain_u=lambda(2,:)*Mu(2,:)';
+gain_tot=gain_e+gain_u;
