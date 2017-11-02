@@ -1,8 +1,7 @@
 # Problem Set 3: Huggett's model
-They key conceptual new element in this problem set is finding general equilibrium. 
 
-In terms of how to solve for equilibrium, two crucial & related steps are involved:
-- We need to find the ergodic distribution that results when everyone in the economy follows the policy function, but gets hit by different idiosyncratic shocks.
-- We need to find the asset price that clears the market
+I learn a lot from this homework, like the bsxfunction and permute fn. Also  the distribution iteration part is new.
 
-The problem set + starter code will walk you through these steps.
+All answers are in the pdf named 'homework3_jiani', including the Matlab codes. 
+
+Thanks a lot Prof!
